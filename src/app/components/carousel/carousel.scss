@@ -1,0 +1,29 @@
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.nav-btn:hover {
+  background-color: #555;
+}
+
+.carousel-images {
+  display: flex;
+  gap: 5px;
+      flex-direction: row;
+}
+ 
