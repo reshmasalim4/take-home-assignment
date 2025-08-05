@@ -14,7 +14,7 @@ export class HomeService {
   public addData$ = new BehaviorSubject<SafeHtml[]|undefined>(undefined);
   
   getInitialImage(val:string){
-    const url = apiUrls.getInitials +val;
+    const url = apiUrls.getInitials +val +'&delay=10'
     return this.http.get(url,{responseType:'text'});
   }
 }

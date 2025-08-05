@@ -14,6 +14,7 @@ export class CarouselComponent implements OnInit {
   drawList: SafeHtml[] = [];
   currentIndex = 0;
   pageSize = 1;
+
   ngOnInit(): void {
     this.homeService.colSize$.subscribe((size) => {
       if (size != this.pageSize) {
@@ -31,7 +32,9 @@ export class CarouselComponent implements OnInit {
 
   checkForCurrentIndex() {
     if (this.pageSize === 2 && this.initialList.length >= 2) {
-      this.currentIndex = this.initialList.length - 2;
+      this.currentIndex = Math.floor(
+        (this.initialList.length - 1) / this.pageSize
+      );
     } else {
       this.currentIndex = this.initialList.length - 1;
     }
@@ -39,27 +42,24 @@ export class CarouselComponent implements OnInit {
   }
 
   getVisibleList() {
-    this.drawList = this.initialList.slice(
-      this.currentIndex,
-      this.currentIndex + this.pageSize
-    );
-    console.log(this.currentIndex,  this.drawList.length)
+    let index = this.currentIndex
+      ? this.currentIndex * this.pageSize
+      : this.currentIndex;
+    this.drawList = this.initialList.slice(index, index + this.pageSize);
   }
 
   next(): void {
     const maxIndex = this.initialList.length - this.pageSize;
     if (this.currentIndex < maxIndex) {
-      this.currentIndex ++;
+      this.currentIndex++;
     }
     this.getVisibleList();
   }
 
   back(): void {
     if (this.currentIndex > 0) {
-      this.currentIndex --;
+      this.currentIndex--;
     }
     this.getVisibleList();
   }
-
-   
 }

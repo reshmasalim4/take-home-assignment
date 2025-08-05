@@ -15,7 +15,7 @@
     matMiniFab
     id="nextBtn"
     (click)="next()"
-    [disabled]="initialList.length <= pageSize || initialList.length-pageSize==currentIndex"
+    [disabled]="((currentIndex+1)*pageSize) >=initialList.length"
   >
     <mat-icon
       aria-hidden="false"
