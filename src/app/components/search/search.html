@@ -1,13 +1,23 @@
-<div>
-<form  #nameForm="ngForm" (ngSubmit)="nameOnSubmit(nameForm);">
-   
-    <mat-form-field  >
-    <mat-label>User Name </mat-label>
-    <input matInput placeholder="Enter name here" value="" ngModel
-    name="userName" required>
-  </mat-form-field>
+<div class="container">
+  <form #nameForm="ngForm" (ngSubmit)="nameOnSubmit(nameForm);">
+    <mat-form-field>
+      <mat-label>User Name </mat-label>
+      <input
+        matInput
+        placeholder="Enter name here"
+        value=""
+        ngModel
+        name="userName"
+        required
+      />
+    </mat-form-field>
 
-    <button [disabled]="!nameForm.valid || isApiCalling"   matButton="filled" type ="submit"> Submit </button>
-</form>
+    <button
+      [disabled]="!nameForm.valid || isApiCalling"
+      matButton="filled"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
 </div>
-

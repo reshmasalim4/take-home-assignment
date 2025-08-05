@@ -1,16 +1,26 @@
-
- 
-
 <div class="carousel-container" *ngIf="initialList.length">
-  <button  matMiniFab  id="backBtn" (click) = "back()" [disabled] ="currentIndex==0">
-    <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="chevron_left"></mat-icon>
+  <button matMiniFab id="backBtn" (click)="back()" [disabled]="currentIndex==0">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Previous"
+      fontIcon="chevron_left"
+    ></mat-icon>
   </button>
 
   <div class="carousel-images">
     <div *ngFor="let svg of drawList" [innerHTML]="svg"></div>
   </div>
 
-  <button  matMiniFab id="nextBtn" (click)="next()" [disabled] ="initialList.length <= pageSize || initialList.length-pageSize==currentIndex">
-    <mat-icon aria-hidden="false" aria-label="Next" fontIcon="chevron_right"></mat-icon>
+  <button
+    matMiniFab
+    id="nextBtn"
+    (click)="next()"
+    [disabled]="initialList.length <= pageSize || initialList.length-pageSize==currentIndex"
+  >
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Next"
+      fontIcon="chevron_right"
+    ></mat-icon>
   </button>
 </div>
